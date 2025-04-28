@@ -1,13 +1,14 @@
-{
-  lib,
-  bundlerApp,
-  bundlerUpdateScript,
-}:
+# {
+#   lib,
+#   bundlerApp,
+#   bundlerUpdateScript,
+# }:
 
-bundlerApp {
-  pname = "httparty";
-  gemdir = ./.;
-  exes = [ "httparty" ];
+# bundlerApp {
+#   pname = "httparty";
+#   gemdir = ./.;
+#   exes = [ "httparty" ];
 
-  passthru.updateScript = bundlerUpdateScript "pry";
-}
+#   passthru.updateScript = bundlerUpdateScript "pry";
+# }
+
