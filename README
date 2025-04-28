@@ -1,0 +1,8 @@
+1. create gemfile
+2. `bundle lock` to create gemfile.lock
+3. `bundix` to create gemset.nix
+4. copy the default.nix from pry inside nixpkgs and change pname and exes
+5. update shell.nix to call the package from default.nix
+
+
+This *does* make the binaries executable, but does not make the package accessible from within a ruby script with `require httparty`.
