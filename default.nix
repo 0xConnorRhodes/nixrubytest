@@ -1,11 +1,16 @@
-with (import <nixpkgs> {});
+{ stdenv, bundlerEnv, ruby }:
 let
   gems = bundlerEnv {
-    name = "httparty";
+    name = "your-package";
     inherit ruby;
-    gemdir = ./.;
+    gemdir  = ./.;
   };
 in stdenv.mkDerivation {
-  name = "httparty";
+  name = "your-package";
+  src = ./.;
   buildInputs = [gems ruby];
+  installPhase = ''
+    mkdir -p $out
+    cp -r $src $out
+  '';
 }
