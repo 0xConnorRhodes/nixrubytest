@@ -1,14 +1,11 @@
-# {
-#   lib,
-#   bundlerApp,
-#   bundlerUpdateScript,
-# }:
-
-# bundlerApp {
-#   pname = "httparty";
-#   gemdir = ./.;
-#   exes = [ "httparty" ];
-
-#   passthru.updateScript = bundlerUpdateScript "pry";
-# }
-
+with (import <nixpkgs> {});
+let
+  gems = bundlerEnv {
+    name = "httparty";
+    inherit ruby;
+    gemdir = ./.;
+  };
+in stdenv.mkDerivation {
+  name = "httparty";
+  buildInputs = [gems ruby];
+}
